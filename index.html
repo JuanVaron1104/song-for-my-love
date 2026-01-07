@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para ti, Mafe ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #ffd6e8 0%, #ffe4d6 50%, #d6f0ff 100%);
+      font-family: 'Georgia', serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 600px;
+      width: 100%;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeInDown 1s ease;
+    }
+    
+    .header h1 {
+      font-size: 2.5em;
+      color: #d47c9e;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .header p {
+      font-size: 1.1em;
+      color: #7a5c6f;
+      line-height: 1.6;
+      font-style: italic;
+      max-width: 450px;
+      margin: 0 auto;
+    }
+    
+    .jukebox-container {
+      background: linear-gradient(145deg, #f4e4ed, #fdf0f5);
+      border-radius: 30px;
+      padding: 40px 30px 30px;
+      box-shadow: 0 15px 40px rgba(212, 124, 158, 0.2);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease 0.3s both;
+    }
+    
+    .jukebox-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, #d47c9e, #f4a7bf, #d47c9e);
+      border-radius: 30px 30px 0 0;
+    }
+    
+    .vinyl-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .vinyl-disc {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #2d2d2d 30%, #1a1a1a 31%, #1a1a1a 45%, #2d2d2d 46%);
+      position: relative;
+      animation: spin 4s linear infinite;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    
+    .vinyl-disc::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #d47c9e 30%, #2d2d2d 31%);
+    }
+    
+    .vinyl-disc::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .vinyl-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffd6e8, #f4a7bf);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+      animation: spin-reverse 4s linear infinite;
+    }
+    
+    .spotify-embed {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    
+    .message-footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #d47c9e;
+      font-style: italic;
+      animation: fadeIn 1s ease 1s both;
+    }
+    
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+    }
+    
+    .heart {
+      position: absolute;
+      color: rgba(244, 167, 191, 0.3);
+      font-size: 20px;
+      animation: float 8s infinite ease-in-out;
+    }
+    
+    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 20%; animation-delay: 2s; }
+    .heart:nth-child(3) { left: 30%; animation-delay: 4s; }
+    .heart:nth-child(4) { left: 50%; animation-delay: 1s; }
+    .heart:nth-child(5) { left: 70%; animation-delay: 3s; }
+    .heart:nth-child(6) { left: 85%; animation-delay: 5s; }
+    
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    @keyframes spin-reverse {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(-360deg); }
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.3;
+      }
+      90% {
+        opacity: 0.3;
+      }
+      50% {
+        transform: translateY(-20px) scale(1);
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 2em;
+      }
+      .vinyl-disc {
+        width: 140px;
+        height: 140px;
+      }
+      .jukebox-container {
+        padding: 30px 20px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts">
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+  </div>
+  
+  <div class="container">
+    <div class="header">
+      <h1>Para ti, amor 💖</h1>
+      <p>Esta canción dice lo que a veces no me sale con palabras. Gracias por existir y por elegirme.</p>
+    </div>
+    
+    <div class="jukebox-container">
+      <div class="vinyl-section">
+        <div class="vinyl-disc">
+          <div class="vinyl-label">♪</div>
+        </div>
+      </div>
+      
+      <div class="spotify-embed">
+        <iframe 
+          style="border-radius:12px" 
+          src="https://open.spotify.com/embed/track/6kdCN6gTWLcLxmLXoUcwuI?utm_source=generator" 
+          width="100%" 
+          height="352" 
+          frameBorder="0" 
+          allowfullscreen="" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy">
+        </iframe>
+      </div>
+      
+      <div class="message-footer">
+        <p>Con amor, para Mafe ✨</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
